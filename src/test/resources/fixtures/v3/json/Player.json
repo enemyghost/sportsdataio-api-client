@@ -1,0 +1,20 @@
+{
+  "PlayerID": 60006480,
+  "FirstName": "Tyson",
+  "LastName": "Jolly",
+  "TeamID": 1,
+  "Team": "SMU",
+  "Jersey": 0,
+  "Position": "G",
+  "Class": "Senior",
+  "Height": 76,
+  "Weight": 0,
+  "BirthCity": "Oklahoma City",
+  "BirthState": "OK",
+  "HighSchool": "Putnam City West HS",
+  "SportRadarPlayerID": "",
+  "RotoworldPlayerID": null,
+  "RotoWirePlayerID": null,
+  "FantasyAlarmPlayerID": null,
+  "GlobalTeamID": 60000001
+}

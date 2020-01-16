@@ -1,0 +1,103 @@
+[
+  {
+    "ConferenceID": 1,
+    "Name": "American Athletic",
+    "Teams": [
+      {
+        "TeamID": 1,
+        "Key": "SMU",
+        "Active": true,
+        "School": "SMU",
+        "Name": "Mustangs",
+        "ApRank": null,
+        "Wins": 12,
+        "Losses": 3,
+        "ConferenceWins": 2,
+        "ConferenceLosses": 1,
+        "GlobalTeamID": 60000001,
+        "ConferenceID": 1,
+        "Conference": "American Athletic",
+        "TeamLogoUrl": "https:\/\/s3-us-west-2.amazonaws.com\/static.fantasydata.com\/logos\/ncaa\/1.png",
+        "ShortDisplayName": "SMU",
+        "Stadium": {
+          "StadiumID": 101,
+          "Active": true,
+          "Name": "Moody Coliseum",
+          "Address": null,
+          "City": "Dallas",
+          "State": "TX",
+          "Zip": null,
+          "Country": null,
+          "Capacity": 7000
+        }
+      },
+      {
+        "TeamID": 2,
+        "Key": "TEMPL",
+        "Active": true,
+        "School": "Temple",
+        "Name": "Owls",
+        "ApRank": 17,
+        "Wins": 9,
+        "Losses": 6,
+        "ConferenceWins": 1,
+        "ConferenceLosses": 3,
+        "GlobalTeamID": 60000002,
+        "ConferenceID": 1,
+        "Conference": "American Athletic",
+        "TeamLogoUrl": "https:\/\/s3-us-west-2.amazonaws.com\/static.fantasydata.com\/logos\/ncaa\/2.png",
+        "ShortDisplayName": "TEMPLE",
+        "Stadium": {
+          "StadiumID": 45,
+          "Active": true,
+          "Name": "Liacouras Center",
+          "Address": null,
+          "City": "Philadelphia",
+          "State": "PA",
+          "Zip": null,
+          "Country": null,
+          "Capacity": 10200
+        }
+      }
+    ]
+  },
+  {
+    "ConferenceID": 2,
+    "Name": "America East",
+    "Teams": [
+      {
+        "TeamID": 12,
+        "Key": "STBR",
+        "Active": true,
+        "School": "Stony Brook",
+        "Name": "Seawolves",
+        "ApRank": null,
+        "Wins": 12,
+        "Losses": 6,
+        "ConferenceWins": 3,
+        "ConferenceLosses": 0,
+        "GlobalTeamID": 60000012,
+        "ConferenceID": 2,
+        "Conference": "America East",
+        "TeamLogoUrl": "https:\/\/s3-us-west-2.amazonaws.com\/static.fantasydata.com\/logos\/ncaa\/12.png",
+        "ShortDisplayName": "STBR",
+        "Stadium": {
+          "StadiumID": 339,
+          "Active": true,
+          "Name": "Island FCU Arena",
+          "Address": null,
+          "City": "Stony Brook",
+          "State": "NY",
+          "Zip": null,
+          "Country": null,
+          "Capacity": 4000
+        }
+      }
+    ]
+  },
+  {
+    "ConferenceID": 15,
+    "Name": "Independents",
+    "Teams": []
+  }
+]
