@@ -42,4 +42,26 @@ class PreconditionUtilsTest {
     void testRequireNonEmptyCollectionEmpty() {
         assertThrows(NullPointerException.class, () -> PreconditionUtils.requireNonEmpty(List.of(), "error message"));
     }
+
+    @Test
+    void testCheckArgumentBoolean() {
+        PreconditionUtils.checkArgument(true, "error message");
+    }
+
+    @Test
+    void testCheckArgumentBooleanFalse() {
+        assertThrows(IllegalArgumentException.class, () -> PreconditionUtils.checkArgument(false, "error message"));
+    }
+
+    @Test
+    void testCheckArgumentPredicate() {
+        assertEquals("my-string",
+                PreconditionUtils.checkArgument("my-string", (s) -> !s.isEmpty(), "empty string!"));
+    }
+
+    @Test
+    void testCheckArgumentPredicateFalse() {
+        assertThrows(IllegalArgumentException.class,
+                () -> PreconditionUtils.checkArgument("", (s) -> !s.isEmpty(), "empty string!"));
+    }
 }

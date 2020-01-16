@@ -1,0 +1,35 @@
+[
+  {
+    "StadiumID": 45,
+    "Active": true,
+    "Name": "Liacouras Center",
+    "Address": null,
+    "City": "Philadelphia",
+    "State": "PA",
+    "Zip": null,
+    "Country": null,
+    "Capacity": 10200
+  },
+  {
+    "StadiumID": 101,
+    "Active": true,
+    "Name": "Moody Coliseum",
+    "Address": null,
+    "City": "Dallas",
+    "State": "TX",
+    "Zip": null,
+    "Country": null,
+    "Capacity": 7000
+  },
+  {
+    "StadiumID": 339,
+    "Active": true,
+    "Name": "Island FCU Arena",
+    "Address": null,
+    "City": "Stony Brook",
+    "State": "NY",
+    "Zip": null,
+    "Country": null,
+    "Capacity": 4000
+  }
+]
