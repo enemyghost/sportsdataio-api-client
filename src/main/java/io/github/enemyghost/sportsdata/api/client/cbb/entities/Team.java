@@ -58,66 +58,147 @@ public class Team {
         return new Builder();
     }
 
+    /**
+     * The auto-generated unique ID of the Team
+     *
+     * @return the auto-generated unique ID of the Team
+     */
     public int getTeamId() {
         return teamId;
     }
 
+    /**
+     * Abbreviation of the team  (e.g. OU, TTU, USC, UK, etc.), used to reference the team in API endpoints
+     *
+     * @return abbreviation of the team
+     */
     public String getKey() {
         return key;
     }
 
+    /**
+     * Whether or not the team is active
+     *
+     * @return true if the team is currently active, false otherwise
+     */
     public boolean isActive() {
         return active;
     }
 
+    /**
+     * A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
+     *
+     * @return a globally unique ID for this team
+     */
     public int getGlobalTeamId() {
         return globalTeamId;
     }
 
+    /**
+     * The school of the team (e.g. Oklahoma University, Texas Tech University, University of Southern California,
+     * Kentucky University, etc)
+     *
+     * @return the school of the team
+     */
     public Optional<String> getSchool() {
         return Optional.ofNullable(school);
     }
 
+    /**
+     * The mascot of the team (e.g. Sooners, Red Raiders, Trojans, Wildcats, etc.)
+     *
+     * @return the mascot of the team
+     */
     public Optional<String> getName() {
         return Optional.ofNullable(name);
     }
 
+    /**
+     * The AP Rank of the team
+     *
+     * @return the AP Rank of the team
+     */
     public Optional<Integer> getApRank() {
         return Optional.ofNullable(apRank);
     }
 
+    /**
+     * The total number of wins by the school
+     *
+     * @return the total number of wins by the school
+     */
     public Optional<Integer> getWins() {
         return Optional.ofNullable(wins);
     }
 
+    /**
+     * The total number of losses by the school
+     *
+     * @return the total number of losses by the school
+     */
     public Optional<Integer> getLosses() {
         return Optional.ofNullable(losses);
     }
 
+    /**
+     * The total number of conference wins by the school
+     *
+     * @return the total number of conference wins by the school
+     */
     public Optional<Integer> getConferenceWins() {
         return Optional.ofNullable(conferenceWins);
     }
 
+    /**
+     * The total number of conference losses by the school
+     *
+     * @return the total number of conference losses by the school
+     */
     public Optional<Integer> getConferenceLosses() {
         return Optional.ofNullable(conferenceLosses);
     }
 
+    /**
+     * The ID of the team's conference
+     *
+     * @return the ID of the team's conference
+     */
     public Optional<Integer> getConferenceId() {
         return Optional.ofNullable(conferenceId);
     }
 
+    /**
+     * The name of the team's conference
+     *
+     * @return the name of the team's conference
+     */
     public Optional<String> getConference() {
         return Optional.ofNullable(conference);
     }
 
+    /**
+     * The url of the team logo image
+     *
+     * @return the url of the team logo image
+     */
     public Optional<String> getTeamLogoUrl() {
         return Optional.ofNullable(teamLogoUrl);
     }
 
+    /**
+     * The short display name of the team
+     *
+     * @return the short display name of the team
+     */
     public Optional<String> getShortDisplayName() {
         return Optional.ofNullable(shortDisplayName);
     }
 
+    /**
+     * The home stadium of the team
+     *
+     * @return the home stadium of the team
+     */
     public Optional<Stadium> getStadium() {
         return Optional.ofNullable(stadium);
     }

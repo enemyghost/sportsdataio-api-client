@@ -33,8 +33,31 @@ public class Conference {
         return new Builder();
     }
 
+    /**
+     * The ID of the conference
+     *
+     * @return the ID of the conference
+     */
     public int getConferenceId() {
         return conferenceId;
+    }
+
+    /**
+     * The name of the conference
+     *
+     * @return the name of the conference
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * The college teams within this conference
+     *
+     * @return the college teams within this conference
+     */
+    public List<Team> getTeams() {
+        return teams;
     }
 
     @Override

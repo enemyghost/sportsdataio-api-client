@@ -44,38 +44,83 @@ public class Stadium {
         return new Builder();
     }
 
+    /**
+     * The unique ID of the stadium
+     *
+     * @return the unique ID of the stadium
+     */
     public int getStadiumId() {
         return stadiumId;
     }
 
+    /**
+     * Whether or not this stadium is the home venue for an active team
+     *
+     * @return true if this stadium is the home venue for an active team, false otherwise
+     */
     public boolean isActive() {
         return active;
     }
 
+    /**
+     * The full name of the stadium
+     *
+     * @return the full name of the stadium
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * The address where the stadium is located
+     *
+     * @return the address where the stadium is located
+     */
     public Optional<String> getAddress() {
         return Optional.ofNullable(address);
     }
 
+    /**
+     * The city where the stadium is located
+     *
+     * @return the city where the stadium is located
+     */
     public Optional<String> getCity() {
         return Optional.ofNullable(city);
     }
 
+    /**
+     * The US state where the stadium is located (if Stadium is outside US, this value is {@link Optional#empty})
+     *
+     * @return the US state where the stadium is located
+     */
     public Optional<String> getState() {
         return Optional.ofNullable(state);
     }
 
+    /**
+     * The zip code of the stadium
+     *
+     * @return the zip code of the stadium
+     */
     public Optional<String> getZip() {
         return Optional.ofNullable(zip);
     }
 
+    /**
+     * The 2-digit country code where the stadium is located
+     *
+     * @return the 2-digit country code where the stadium is located
+     */
     public Optional<String> getCountry() {
         return Optional.ofNullable(country);
     }
 
+    /**
+     * The estimated seating capacity of the stadium
+     *
+     * @return the estimated seating capacity of the stadium
+     */
     public Optional<Integer> getCapacity() {
         return Optional.ofNullable(capacity);
     }
