@@ -62,74 +62,166 @@ public class Player {
         return new Builder();
     }
 
+    /**
+     * The player's unique PlayerID as assigned by FantasyData.
+     *
+     * @return the player's unique PlayerID as assigned by FantasyData.
+     */
     public int getPlayerId() {
         return playerId;
     }
 
+    /**
+     * The player's first name.
+     *
+     * @return the player's first name
+     */
     public Optional<String> getFirstName() {
         return Optional.ofNullable(firstName);
     }
 
+    /**
+     * The player's last name.
+     *
+     * @return the player's last name
+     */
     public Optional<String> getLastName() {
         return Optional.ofNullable(lastName);
     }
 
+    /**
+     * The ID of the team this player is employed by.
+     *
+     * @return the ID of the team this player is employed by.
+     */
     public Optional<Integer> getTeamId() {
         return Optional.ofNullable(teamId);
     }
 
+    /**
+     * The key/abbreviation of the team this player is employed by.
+     *
+     * @return the key/abbreviation of the team this player is employed by.
+     */
     public Optional<String> getTeam() {
         return Optional.ofNullable(team);
     }
 
+    /**
+     * The player's jersey number.
+     *
+     * @return the player's jersey number.
+     */
     public Optional<Integer> getJersey() {
         return Optional.ofNullable(jersey);
     }
 
+    /**
+     * The player's eligible position(s). Possible values: C, F, F-C, G, G-F
+     *
+     * @return the player's eligible position(s).
+     */
     public Optional<String> getPosition() {
         return Optional.ofNullable(position);
     }
 
+    /**
+     * The class of the player (e.g. Freshman, Sophomore, Junior, or Senior)
+     * <p>
+     * Represents the field `class` on the JSON response, a Java reserved word.
+     *
+     * @return the class of the player
+     */
     public Optional<String> getPlayerClass() {
         return Optional.ofNullable(playerClass);
     }
 
+    /**
+     * The player's height in inches
+     *
+     * @return the player's height in inches
+     */
     public Optional<Integer> getHeight() {
         return Optional.ofNullable(height);
     }
 
+    /**
+     * The player's weight in pounds (lbs)
+     *
+     * @return the player's weight in pounds (lbs)
+     */
     public Optional<Integer> getWeight() {
         return Optional.ofNullable(weight);
     }
 
+    /**
+     * The city in which the player was born
+     *
+     * @return the city in which the player was born
+     */
     public Optional<String> getBirthCity() {
         return Optional.ofNullable(birthCity);
     }
 
+    /**
+     * The state in which the player was born
+     *
+     * @return the state in which the player was born
+     */
     public Optional<String> getBirthState() {
         return Optional.ofNullable(birthState);
     }
 
+    /**
+     * The high school that the player attended
+     *
+     * @return the high school that the player attended
+     */
     public Optional<String> getHighSchool() {
         return Optional.ofNullable(highSchool);
     }
 
+    /**
+     * The player's cross reference PlayerID to the SportRadar API
+     *
+     * @return the player's cross reference PlayerID to the SportRadar API
+     */
     public Optional<String> getSportRadarPlayerId() {
         return Optional.ofNullable(sportRadarPlayerId);
     }
 
+    /**
+     * The player's cross reference PlayerID to the Rotoworld news feed
+     *
+     * @return the player's cross reference PlayerID to the Rotoworld news feed
+     */
     public Optional<Integer> getRotoworldPlayerId() {
         return Optional.ofNullable(rotoworldPlayerId);
     }
 
+    /**
+     * The player's cross reference PlayerID to the RotoWire news feed
+     *
+     * @return the player's cross reference PlayerID to the RotoWire news feed
+     */
     public Optional<Integer> getRotoWirePlayerId() {
         return Optional.ofNullable(rotoWirePlayerId);
     }
 
+    /**
+     * The player's cross reference PlayerID to the FantasyAlarm news feed
+     *
+     * @return the player's cross reference PlayerID to the FantasyAlarm news feed
+     */
     public Optional<Integer> getFantasyAlarmPlayerId() {
         return Optional.ofNullable(fantasyAlarmPlayerId);
     }
 
+    /**
+     * A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
+     *
+     * @return a globally unique ID for this team
+     */
     public Optional<Integer> getGlobalTeamID() {
         return Optional.ofNullable(globalTeamID);
     }

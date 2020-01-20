@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <name>sportsdataio-api-client</name>
-    <description>A feign-based Java API client or the sportsdata.io API</description>
+    <description>A feign-based Java API client for the sportsdata.io API</description>
     <url>https://github.com/enemyghost/sportsdataio-api-client</url>
 
     <developers>
