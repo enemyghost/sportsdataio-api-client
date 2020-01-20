@@ -4,7 +4,7 @@
 
     <groupId>io.github.enemyghost</groupId>
     <artifactId>sportsdataio-api-client</artifactId>
-    <version>0.2.0</version>
+    <version>0.2.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>sportsdataio-api-client</name>
@@ -31,7 +31,7 @@
         <connection>scm:git:git://github.com/enemyghost/sportsdataio-api-client.git</connection>
         <developerConnection>scm:git:ssh://github.com:enemyghost/sportsdataio-api-client.git</developerConnection>
         <url>http://github.com/enemyghost/sportsdataio-api-client/tree/master</url>
-      <tag>sportsdataio-api-client-0.2.0</tag>
+      <tag>HEAD</tag>
   </scm>
 
 
