@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.nio.charset.StandardCharsets;
+import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -104,6 +105,42 @@ class NcaaBasketballV3ApiClientTest {
     void testGetTeams() {
         mockClient.add(HttpMethod.GET, "/v3/cbb/scores/json/Teams", 200, getResponseFixture("Teams"));
         assertEquals(Fixtures.TEAMS, apiClient.teams());
+    }
+
+    @Test
+    void testGetPlayerGameProjectionStatsByPlayer() {
+        mockClient.add(HttpMethod.GET, "/v3/cbb/stats/json/PlayerGameProjectionStatsByPlayer/2020-FEB-08/60008866", 200, getResponseFixture("PlayerGameProjectionStatsByPlayer"));
+        assertEquals(Fixtures.PLAYER_GAME_1, apiClient.playerGameProjectionStatsByPlayer(60008866, LocalDate.of(2020, 2, 8)).orElseThrow());
+    }
+
+    @Test
+    void testGetPlayerGameProjectionStats404() {
+        mockClient.add(HttpMethod.GET, "/v3/cbb/stats/json/PlayerGameProjectionStatsByPlayer/2020-FEB-08/60008866", 404);
+        assertTrue(apiClient.playerGameProjectionStatsByPlayer(60008866, LocalDate.of(2020, 2, 8)).isEmpty());
+    }
+
+    @Test
+    void testGetPlayerGameProjectionStatsByDate() {
+        mockClient.add(HttpMethod.GET, "/v3/cbb/stats/json/PlayerGameProjectionStatsByDate/2020-FEB-08", 200, getResponseFixture("PlayerGameProjectionStatsByDate"));
+        assertEquals(Fixtures.PLAYER_GAMES, apiClient.playerGameProjectionStatsByDate(LocalDate.of(2020, 2, 8)));
+    }
+
+    @Test
+    void testGetPlayerGameStatsByPlayer() {
+        mockClient.add(HttpMethod.GET, "/v3/cbb/stats/json/PlayerGameStatsByPlayer/2020-FEB-08/60008866", 200, getResponseFixture("PlayerGameProjectionStatsByPlayer"));
+        assertEquals(Fixtures.PLAYER_GAME_1, apiClient.playerGameStatsByPlayer(60008866, LocalDate.of(2020, 2, 8)).orElseThrow());
+    }
+
+    @Test
+    void testGetPlayerGameStats404() {
+        mockClient.add(HttpMethod.GET, "/v3/cbb/stats/json/PlayerGameStatsByPlayer/2020-FEB-08/60008866", 404);
+        assertTrue(apiClient.playerGameStatsByPlayer(60008866, LocalDate.of(2020, 2, 8)).isEmpty());
+    }
+
+    @Test
+    void testGetPlayerGameStatsByDate() {
+        mockClient.add(HttpMethod.GET, "/v3/cbb/stats/json/PlayerGameStatsByDate/2020-FEB-08", 200, getResponseFixture("PlayerGameProjectionStatsByDate"));
+        assertEquals(Fixtures.PLAYER_GAMES, apiClient.playerGameStatsByDate(LocalDate.of(2020, 2, 8)));
     }
 
     @SuppressWarnings("UnstableApiUsage")

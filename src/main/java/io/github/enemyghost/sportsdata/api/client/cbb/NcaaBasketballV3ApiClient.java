@@ -2,6 +2,7 @@ package io.github.enemyghost.sportsdata.api.client.cbb;
 
 import io.github.enemyghost.sportsdata.api.client.cbb.entities.Conference;
 import io.github.enemyghost.sportsdata.api.client.cbb.entities.Player;
+import io.github.enemyghost.sportsdata.api.client.cbb.entities.PlayerGame;
 import io.github.enemyghost.sportsdata.api.client.cbb.entities.Season;
 import io.github.enemyghost.sportsdata.api.client.cbb.entities.Stadium;
 import io.github.enemyghost.sportsdata.api.client.cbb.entities.Team;
@@ -12,8 +13,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+
+import static io.github.enemyghost.sportsdata.api.client.util.DateFormatUtils.toDatePathParam;
 
 /**
  * Feign-annotated API Client for the sportsdata.io NCAA Men's Basketball (CBB) API.
@@ -103,7 +107,98 @@ public interface NcaaBasketballV3ApiClient {
     @Path("/scores/json/Stadiums")
     List<Stadium> stadiums();
 
+    /**
+     * Returns all available NCAA Men's basketball teams
+     *
+     * @return all available {@link Team}
+     */
     @GET
     @Path("/scores/json/Teams")
     List<Team> teams();
+
+    /**
+     * Gets a player's game stats for games which started in the past.
+     *
+     * @param playerId id of the player
+     * @param date     date the game was played in format {@code "yyyy-MMM-dd".toUpperCase()}
+     * @return player's game stats for the given day
+     */
+    @GET
+    @Path("/stats/json/PlayerGameStatsByPlayer/{date}/{playerId}")
+    Optional<PlayerGame> playerGameStatsByPlayer(@PathParam("playerId") final int playerId,
+                                                 @PathParam("date") final String date);
+
+    /**
+     * Gets a player's game stats for games which started in the past.
+     *
+     * @param playerId id of the player
+     * @param date     date the game was played
+     * @return player's game stats for the given day, or {@link Optional#empty()} if none found
+     */
+    default Optional<PlayerGame> playerGameStatsByPlayer(final int playerId, final LocalDate date) {
+        return playerGameStatsByPlayer(playerId, toDatePathParam(date));
+    }
+
+    /**
+     * Gets all players' game stats for games which started in the past.
+     *
+     * @param date date the games were played in format {@code "yyyy-MMM-dd".toUpperCase()}
+     * @return all players' game stats for games which started in the past.
+     */
+    @GET
+    @Path("/stats/json/PlayerGameStatsByDate/{date}")
+    List<PlayerGame> playerGameStatsByDate(@PathParam("date") final String date);
+
+    /**
+     * Gets all players' game stats for games which started in the past.
+     *
+     * @param date date the games were played
+     * @return all players' game stats for games which started in the past.
+     */
+    default List<PlayerGame> playerGameStatsByDate(final LocalDate date) {
+        return playerGameStatsByDate(toDatePathParam(date));
+    }
+
+    /**
+     * Gets a player's projected game stats for games which start in the future
+     *
+     * @param playerId id of the player
+     * @param date     date the game was played in format {@code "yyyy-MMM-dd".toUpperCase()}
+     * @return player's projected game stats for the given day, or {@link Optional#empty()} if none found
+     */
+    @GET
+    @Path("/stats/json/PlayerGameProjectionStatsByPlayer/{date}/{playerId}")
+    Optional<PlayerGame> playerGameProjectionStatsByPlayer(@PathParam("playerId") final int playerId,
+                                                           @PathParam("date") final String date);
+
+    /**
+     * Gets a player's projected game stats for games which start in the future
+     *
+     * @param playerId id of the player
+     * @param date     date the game was played
+     * @return player's projected game stats for the given day, or {@link Optional#empty()} if none found
+     */
+    default Optional<PlayerGame> playerGameProjectionStatsByPlayer(final int playerId, final LocalDate date) {
+        return playerGameProjectionStatsByPlayer(playerId, toDatePathParam(date));
+    }
+
+    /**
+     * Gets all players' projected game stats for games which start in the future
+     *
+     * @param date date the games were played in format {@code "yyyy-MMM-dd".toUpperCase()}
+     * @return all players' projected game stats for games which start in the future
+     */
+    @GET
+    @Path("/stats/json/PlayerGameProjectionStatsByDate/{date}")
+    List<PlayerGame> playerGameProjectionStatsByDate(@PathParam("date") final String date);
+
+    /**
+     * Gets all players' projected game stats for games which start in the future
+     *
+     * @param date date the games were played
+     * @return all players' projected game stats for games which start in the future
+     */
+    default List<PlayerGame> playerGameProjectionStatsByDate(final LocalDate date) {
+        return playerGameProjectionStatsByDate(toDatePathParam(date));
+    }
 }
