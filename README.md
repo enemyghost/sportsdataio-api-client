@@ -6,7 +6,7 @@ This is a [feign](https://github.com/OpenFeign/feign) based Java client for the 
     <dependency>
         <groupId>io.github.enemyghost</groupId>
         <artifactId>sportsdataio-api-client</artifactId>
-        <version>0.2.0</version>
+        <version>0.3.0</version>
     </dependency>
 ```
 
