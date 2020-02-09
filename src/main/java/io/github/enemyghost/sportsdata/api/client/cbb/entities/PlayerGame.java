@@ -3,7 +3,9 @@ package io.github.enemyghost.sportsdata.api.client.cbb.entities;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import io.github.enemyghost.sportsdata.api.client.cbb.entities.PlayerGame.Builder;
+import io.github.enemyghost.sportsdata.api.client.util.DateFormatUtils;
 
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -37,10 +39,10 @@ public class PlayerGame {
     private final String opponent;
     private final Integer opponentRank;
     private final Integer opponentPositionRank;
-    private final LocalDateTime dateTime;
+    private final Instant gameInstant;
     private final String homeOrAway;
     private final boolean isGameOver;
-    private final LocalDateTime updated;
+    private final Instant updatedInstant;
     private final Integer games;
     private final String fanDuelPosition;
     private final String draftKingsPosition;
@@ -67,10 +69,10 @@ public class PlayerGame {
         opponent = builder.opponent;
         opponentRank = builder.opponentRank;
         opponentPositionRank = builder.opponentPositionRank;
-        dateTime = builder.dateTime;
+        gameInstant = DateFormatUtils.toInstant(builder.dateTime);
         homeOrAway = builder.homeOrAway;
         isGameOver = builder.isGameOver;
-        updated = builder.updated;
+        updatedInstant = DateFormatUtils.toInstant(builder.updated);
         games = builder.games;
         fanDuelPosition = builder.fanDuelPosition;
         draftKingsPosition = builder.draftKingsPosition;
@@ -234,10 +236,20 @@ public class PlayerGame {
         return Optional.ofNullable(opponent);
     }
 
+    /**
+     * The ranking of the player's opponent with regards to fantasy points allowed.
+     *
+     * @return the ranking of the player's opponent with regards to fantasy points allowed
+     */
     public Optional<Integer> getOpponentRank() {
         return Optional.ofNullable(opponentRank);
     }
 
+    /**
+     * The ranking of the player's opponent by position with regards to fantasy points allowed.
+     *
+     * @return the ranking of the player's opponent by position with regards to fantasy points allowed.
+     */
     public Optional<Integer> getOpponentPositionRank() {
         return Optional.ofNullable(opponentPositionRank);
     }
@@ -247,8 +259,8 @@ public class PlayerGame {
      *
      * @return the date and time of the game
      */
-    public Optional<LocalDateTime> getDateTime() {
-        return Optional.ofNullable(dateTime);
+    public Optional<Instant> getGameInstant() {
+        return Optional.ofNullable(gameInstant);
     }
 
     /**
@@ -279,12 +291,12 @@ public class PlayerGame {
     }
 
     /**
-     * The timestamp of when the record was last updated (US Eastern Time)
+     * The timestamp of when the record was last updated
      *
      * @return the timestamp of when the record was last updated
      */
-    public Optional<LocalDateTime> getUpdated() {
-        return Optional.ofNullable(updated);
+    public Optional<Instant> getUpdatedInstant() {
+        return Optional.ofNullable(updatedInstant);
     }
 
     /**
@@ -323,6 +335,24 @@ public class PlayerGame {
         return Optional.ofNullable(yahooPosition);
     }
 
+    /**
+     * The abbreviation of the home team in this matchup
+     *
+     * @return the abbreviation of the home team in this matchup
+     */
+    public Optional<String> getHomeTeam() {
+        return isHome().flatMap(isHome -> isHome ? getTeam() : getOpponent());
+    }
+
+    /**
+     * The abbreviation of the away team in this matchup
+     *
+     * @return the abbreviation of the away team in this matchup
+     */
+    public Optional<String> getAwayTeam() {
+        return isHome().flatMap(isHome -> isHome ? getOpponent() : getTeam());
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
@@ -349,9 +379,9 @@ public class PlayerGame {
                 Objects.equals(opponent, that.opponent) &&
                 Objects.equals(opponentRank, that.opponentRank) &&
                 Objects.equals(opponentPositionRank, that.opponentPositionRank) &&
-                Objects.equals(dateTime, that.dateTime) &&
+                Objects.equals(gameInstant, that.gameInstant) &&
                 Objects.equals(homeOrAway, that.homeOrAway) &&
-                Objects.equals(updated, that.updated) &&
+                Objects.equals(updatedInstant, that.updatedInstant) &&
                 Objects.equals(games, that.games) &&
                 Objects.equals(fanDuelPosition, that.fanDuelPosition) &&
                 Objects.equals(draftKingsPosition, that.draftKingsPosition) &&
@@ -360,7 +390,7 @@ public class PlayerGame {
 
     @Override
     public int hashCode() {
-        return Objects.hash(statId, teamId, globalTeamId, gameId, globalGameId, playerId, seasonType, season, name, team, position, injuryStatus, injuryBodyPart, injuryStartDate, injuryNotes, opponentId, globalOpponentId, opponent, opponentRank, opponentPositionRank, dateTime, homeOrAway, isGameOver, updated, games, fanDuelPosition, draftKingsPosition, yahooPosition);
+        return Objects.hash(statId, teamId, globalTeamId, gameId, globalGameId, playerId, seasonType, season, name, team, position, injuryStatus, injuryBodyPart, injuryStartDate, injuryNotes, opponentId, globalOpponentId, opponent, opponentRank, opponentPositionRank, gameInstant, homeOrAway, isGameOver, updatedInstant, games, fanDuelPosition, draftKingsPosition, yahooPosition);
     }
 
     @Override
@@ -386,10 +416,10 @@ public class PlayerGame {
                 .add("opponent='" + opponent + "'")
                 .add("opponentRank=" + opponentRank)
                 .add("opponentPositionRank=" + opponentPositionRank)
-                .add("dateTime=" + dateTime)
+                .add("gameInstant=" + gameInstant)
                 .add("homeOrAway='" + homeOrAway + "'")
                 .add("isGameOver=" + isGameOver)
-                .add("updated=" + updated)
+                .add("updatedInstant=" + updatedInstant)
                 .add("games=" + games)
                 .add("fanDuelPosition='" + fanDuelPosition + "'")
                 .add("draftKingsPosition='" + draftKingsPosition + "'")

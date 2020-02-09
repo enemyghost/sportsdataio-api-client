@@ -41,6 +41,13 @@ Of course, you can avoid using the factory altogether and configure your own Fei
 Currently, only the following endpoints for NCAA Men's Basketball are supported.
 * FREE tier
     * Are Games In Progress
+    * Current Season
+    * League Hierarchy
+    * Player Details by Active
+    * Player Details by Player
+    * Player Details by Team
+    * Stadiums
+    * Teams
 * PLAYER STATS tier
     * Player Game Stats by Date
     * Player Game Stats by Player
