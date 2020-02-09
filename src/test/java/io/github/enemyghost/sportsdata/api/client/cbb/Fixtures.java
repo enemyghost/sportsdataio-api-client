@@ -2,11 +2,13 @@ package io.github.enemyghost.sportsdata.api.client.cbb;
 
 import io.github.enemyghost.sportsdata.api.client.cbb.entities.Conference;
 import io.github.enemyghost.sportsdata.api.client.cbb.entities.Player;
+import io.github.enemyghost.sportsdata.api.client.cbb.entities.PlayerGame;
 import io.github.enemyghost.sportsdata.api.client.cbb.entities.Season;
 import io.github.enemyghost.sportsdata.api.client.cbb.entities.Stadium;
 import io.github.enemyghost.sportsdata.api.client.cbb.entities.Team;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -192,4 +194,54 @@ public final class Fixtures {
             .build();
 
     static final List<Player> SMU_PLAYERS = List.of(TYSON_JOLLY, ISIAHA_MIKE, GRANT_YOUNGKIN);
+
+    static final PlayerGame PLAYER_GAME_1 = PlayerGame.newBuilder()
+            .withStatID(652532)
+            .withTeamID(177)
+            .withPlayerID(60008866)
+            .withSeasonType(1)
+            .withSeason(2020)
+            .withName("Bryan Trimble Jr.")
+            .withTeam("AKRON")
+            .withPosition("G")
+            .withInjuryStatus("Out for season")
+            .withInjuryBodyPart("Eligibility")
+            .withInjuryStartDate(LocalDate.of(2020, 1, 9))
+            .withInjuryNotes("Trimble Jr. has been declared ineligible for the 2019-20 campaign by the NCAA and will have to sit out the entire season.")
+            .withGlobalTeamID(60000177)
+            .withGameID(27599)
+            .withOpponentID(187)
+            .withOpponent("EMICH")
+            .withDateTime(LocalDateTime.of(2020, 2, 8, 14, 0, 0))
+            .withHomeOrAway("HOME")
+            .withIsGameOver(false)
+            .withGlobalGameID(60027599)
+            .withGlobalOpponentID(60000187)
+            .withUpdated(LocalDateTime.of(2020,2,5,11,41,31))
+            .withGames(1)
+            .build();
+
+    static final PlayerGame PLAYER_GAME_2 = PlayerGame.newBuilder()
+            .withStatID(652942)
+            .withTeamID(267)
+            .withPlayerID(60016201)
+            .withSeasonType(1)
+            .withSeason(2020)
+            .withName("Jalyn McCreary")
+            .withTeam("SC")
+            .withPosition("F")
+            .withGlobalTeamID(60000267)
+            .withGameID(27635)
+            .withOpponentID(270)
+            .withOpponent("TXAM")
+            .withDateTime(LocalDateTime.of(2020, 2, 8, 13, 0, 0))
+            .withHomeOrAway("AWAY")
+            .withIsGameOver(false)
+            .withGlobalGameID(60027635)
+            .withGlobalOpponentID(60000270)
+            .withUpdated(LocalDateTime.of(2020,2,5,21,22,35))
+            .withGames(1)
+            .build();
+
+    static final List<PlayerGame> PLAYER_GAMES = List.of(PLAYER_GAME_1, PLAYER_GAME_2);
 }

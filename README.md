@@ -38,7 +38,24 @@ final NcaaBasketballV3ApiClient client = FeignClientFactory.createDefaultBuilder
 Of course, you can avoid using the factory altogether and configure your own Feign client however you like.
 
 ### Coverage
-Currently, only free endpoints for NCAA Men's Basketball are supported. The project is under active development.
+Currently, only the following endpoints for NCAA Men's Basketball are supported.
+* FREE tier
+    * Are Games In Progress
+    * Current Season
+    * League Hierarchy
+    * Player Details by Active
+    * Player Details by Player
+    * Player Details by Team
+    * Stadiums
+    * Teams
+* PLAYER STATS tier
+    * Player Game Stats by Date
+    * Player Game Stats by Player
+* FANTASY tier
+    * Projected Game Stats by Date
+    * Projected Game Stats by Player 
+
+The project is under active development.
 
 ### Implementation Details
 Accessors for all properties marked as `nullable` in the API documentation will return an `Optional`. A value of
